@@ -50,7 +50,7 @@ jobs:
     - if: matrix.build-mode == 'manual'
       shell: bash
       run: |
-        bash autogen.sh -q
+        bash regen.sh -q
         ./configure --disable-kernel-module
         make all
     - name: Perform CodeQL Analysis
