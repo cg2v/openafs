@@ -52,7 +52,7 @@ jobs:
       shell: bash
       run: |
         bash regen.sh -q
-        ./configure --disable-kernel-module --disable-swig
+        ./configure --disable-kernel-module --with-swig=no
         make all
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
