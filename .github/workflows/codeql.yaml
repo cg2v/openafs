@@ -48,10 +48,11 @@ jobs:
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
     - if: matrix.build-mode == 'manual'
+      name: Compile code with gcc
       shell: bash
       run: |
         bash regen.sh -q
-        ./configure --disable-kernel-module
+        ./configure --disable-kernel-module --disable-swig
         make all
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
